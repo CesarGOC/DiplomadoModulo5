@@ -11,9 +11,11 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var numberPageLabel: UILabel!
+    
     
     var numberPage: Int = 1
+    var currentPage = 1
+    var isFetchingData = false
     
     
     let restClient = RESTClient<PaginaterResponse<Character>>(client: Client("https://rickandmortyapi.com"))
@@ -30,7 +32,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        numberPageLabel.text = "Page: \(numberPage)"
+        tableView.prefetchDataSource = self
         restClient.show("/api/character",page: "1") { response in
             print(response.results)
             self.characters = response.results
@@ -38,29 +40,20 @@ class ViewController: UIViewController {
        
     }
     
-    
-    @IBAction func backPageButtonAction(_ sender: UIButton) {
-        numberPage -= 1
-        if numberPage == 0{
-            numberPage = 1
-        }
-        let page = String(numberPage)
-        restClient.show("/api/character", page: page) { response in
-            self.characters = response.results
-        }
-        numberPageLabel.text = "Page: \(numberPage)"
-    }
-    
-    @IBAction func nextPageButtonAction(_ sender: UIButton) {
-        numberPage += 1
-        let page = String(numberPage)
-        restClient.show("/api/character", page: page) { response in
-            self.characters = response.results
-        }
-        numberPageLabel.text = "Page: \(numberPage)"
-    }
-    
+    func fetchData() {
+            guard !isFetchingData else { return }
 
+            isFetchingData = true
+
+            let page = String(currentPage)
+
+            // Llamar a la API para obtener datos de la página actual
+            restClient.show("/api/character", page: page) { response in
+                self.characters! += response.results
+                self.isFetchingData = false
+                self.tableView.reloadData()
+            }
+        }
 
 }
 
@@ -79,6 +72,18 @@ extension ViewController: UITableViewDataSource{
     }
     
     
+}
+
+extension ViewController: UITableViewDataSourcePrefetching{
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        // Implementar lógica para cargar datos adicionales cuando se prefetchean celdas
+                // indexPaths contiene las indexPaths de las celdas que se prefetchearán
+        let needsFetch = indexPaths.contains { $0.row >= self.characters!.count - 5 }
+                if needsFetch {
+                    currentPage += 1
+                    fetchData()
+                }
+    }
 }
 
 

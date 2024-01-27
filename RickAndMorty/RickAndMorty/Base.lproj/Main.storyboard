@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,54 +17,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Mc7-VF-H3k">
-                                <rect key="frame" x="0.0" y="93.333333333333314" width="393" height="724.66666666666674"/>
+                                <rect key="frame" x="0.0" y="150" width="393" height="668"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lmw-FI-Fjy">
-                                <rect key="frame" x="20" y="59" width="353" height="34.333333333333343"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page n" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wY6-ag-LBY">
-                                        <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="34.333333333333336"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNy-Pq-rSB">
-                                        <rect key="frame" x="186.66666666666666" y="0.0" width="86.999999999999972" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.circle.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="backPageButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LcD-m1-9xD"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zl-ge-t1x">
-                                        <rect key="frame" x="283.66666666666669" y="0.0" width="69.333333333333314" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.forward.circle.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="nextPageButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pgq-MS-8tH"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="d8h-LE-5P3">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                                 <constraints>
-                                    <constraint firstItem="wY6-ag-LBY" firstAttribute="width" secondItem="lmw-FI-Fjy" secondAttribute="width" multiplier="0.5" id="JKg-xO-E1f"/>
+                                    <constraint firstAttribute="height" constant="150" id="gBc-95-mSX"/>
                                 </constraints>
-                            </stackView>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Mc7-VF-H3k" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4Lk-B3-2oQ"/>
-                            <constraint firstItem="lmw-FI-Fjy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4l4-da-GS1"/>
-                            <constraint firstItem="Mc7-VF-H3k" firstAttribute="top" secondItem="lmw-FI-Fjy" secondAttribute="bottom" id="6om-8l-67G"/>
-                            <constraint firstItem="lmw-FI-Fjy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="VUF-AC-OcC"/>
+                            <constraint firstItem="Mc7-VF-H3k" firstAttribute="top" secondItem="d8h-LE-5P3" secondAttribute="bottom" id="57w-2u-wBW"/>
+                            <constraint firstItem="d8h-LE-5P3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MBF-gY-0Pz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d8h-LE-5P3" secondAttribute="trailing" id="QDk-ae-5GE"/>
                             <constraint firstItem="Mc7-VF-H3k" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="axK-w3-Phf"/>
                             <constraint firstItem="Mc7-VF-H3k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bU5-5C-OFx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lmw-FI-Fjy" secondAttribute="trailing" constant="20" id="oJb-60-0L5"/>
+                            <constraint firstItem="d8h-LE-5P3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wZm-yU-4a2"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="numberPageLabel" destination="wY6-ag-LBY" id="OY7-TA-x92"/>
                         <outlet property="tableView" destination="Mc7-VF-H3k" id="dE3-3r-9zt"/>
                     </connections>
                 </viewController>
@@ -74,8 +49,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.forward.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="arrowshape.left.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="img" width="750" height="250"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
